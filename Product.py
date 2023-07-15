@@ -44,6 +44,47 @@ class Product:
 
         except (ProductValueError, ProductTypeError) as purchase_error:
             return purchase_error
+        except AttributeError:
+            return "Attribute quantity not found"
         else:
             self.quantity -= purchase_quantity
             return "Purchase completed successfully"
+
+    def change_quantity(self, quantity):
+        try:
+            if type(quantity) != int:
+                raise ProductTypeError("quantity", quantity)
+
+        except (ProductValueError, ProductTypeError) as purchase_error:
+            return purchase_error
+        except AttributeError:
+            return "Attribute quantity not found"
+        else:
+            self.quantity = quantity
+            return "Change completed successfully"
+
+    def change_price(self, price):
+        try:
+            if type(price) != int:
+                raise ProductTypeError("price", price)
+
+        except (ProductValueError, ProductTypeError) as purchase_error:
+            return purchase_error
+        except AttributeError:
+            return "Attribute price not found"
+        else:
+            self.price = price
+            return "Change completed successfully"
+
+    def change_title(self, title):
+        try:
+            if type(title) != str:
+                raise ProductTypeError("title", title)
+
+        except (ProductValueError, ProductTypeError) as purchase_error:
+            return purchase_error
+        except AttributeError:
+            return "Attribute title not found"
+        else:
+            self.title = title
+            return "Change completed successfully"

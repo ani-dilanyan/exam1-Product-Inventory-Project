@@ -42,7 +42,7 @@ class Inventory:
     def remove_product(self, product: Product):
         try:
             if type(product) != Product:
-                raise ProductTypeError("product to add", product)
+                raise ProductTypeError("product to remove", product)
 
             if product not in self.products:
                 raise ProductValueError("There is no such product in inventory", product)
@@ -57,7 +57,6 @@ class Inventory:
         for product in self.products:
             total += product.price * product.quantity
         return total
-
 
 # apple = Product(1, "Apple", Money("USD", 1), 10)
 # pear = Product(2, "Pear", Money("USD", 2), 20)
